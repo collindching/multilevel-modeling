@@ -6,8 +6,6 @@ I use linear mixed models in my work at Facebook to quantify the effect of marke
 
 Below, I lay out learning goals, exercises to complete, and curriculum. Core work components will be notes, blog posts, and projects.
 
-Reach out at collindching@gmail.com if you'd like to discuss anything related to this curriculum. 
-
 ## Learning Goals
 
 After completing this learning plan, I will

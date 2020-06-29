@@ -14,11 +14,11 @@
 
 ### Example structures for multilevel data
 
-**Varying-intercept model:** $$y_i = \alpha_{j[i]} + \beta x_i + \epsilon_i$$
+**Varying-intercept model:** $$ y_i = \alpha_{j[i]} + \beta x_i + \epsilon_i $$
 
-**Varying-slope model:** $$y_i = \alpha + \beta_{j[i]}x_i + \epsilon_i$$
+**Varying-slope model:** $$ y_i = \alpha + \beta_{j[i]}x_i + \epsilon_i $$
 
-**Varying-intercept, varying-slope model:** $$y_i = \alpha_{j[i]} + \beta_{j[i]} x_i + \epsilon_i$$
+**Varying-intercept, varying-slope model:** $$ y_i = \alpha_{j[i]} + \beta_{j[i]} x_i + \epsilon_i $$
 
 
 

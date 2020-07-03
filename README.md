@@ -1,6 +1,8 @@
 ## Multilevel Modeling Learning Plan
 
-This plan is a focused and structured approach to learning multilevel models, also known as hierarchical linear models or mixed effects models. The goal is to better understand multilevel modeling, which I use to create marketing mix models at Facebook. 
+This plan is a focused and structured approach to learning multilevel models. These are also known as hierarchical linear models (HLMs), linear mixed effects models (LMEs), and linear mixed models (LMMs).
+
+I use linear mixed models in my work at Facebook to quantify the effect of marketing inputs on brand sentiment.
 
 Below, I lay out learning goals, exercises to complete, and curriculum. Core work components will be notes, blog posts, and projects.
 

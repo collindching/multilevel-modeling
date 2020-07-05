@@ -52,10 +52,37 @@ In this book, the authors choose "multilevel models" as preferred terminology ov
 
 ## Motivations for multilevel modeling
 
-- Learning about treatment effects that vary by group
-- Using all data to perform inferences for groups with small sample size
-- Prediction
-- Analysis of structured data
-- More efficient inference of regression parameters
-- Including predictors at two different levels
+#### Learning about treatment effects that vary by group
+
+It is often of interest to study how the effect of $x$ on $y$ varies throughout population. In classical statistics, interactions are used to study group-level variations; however, resulting estimates can be noisy (bad) when group sizes are small. Multilevel models allows us to study effects that vary by group with greater rigor. 
+
+#### Performing inference on groups with small sample size
+
+Given a group of interest that has a small sample size. Classical regression within this group will give noisy estimates. But a regression that ignores groups altogether overlooks important group-level variation. Multilevel modeling offers a tradeoff between these two approaches, balancing between over- and underfitting.
+
+#### Prediction
+
+In grouped data, predictions are made on existing and new groups. To make predictions on a new group with classical regression, you would first fit a two-stage regression: 1) a unit-level regresssion that includes group indicators, and 2) a regression on the group effects, using group-level predictors. 
+
+Then you could use the attributes of the new group to estimate its coefficient in the unit-level regression, and use the unit-level regression to make individual predictions. Issues arise when you have small sample sizes, but multilevel models can make predictions while accounting uncertainty. 
+
+#### Analysis of structured data
+
+To make inference on datasets with multilevel structure, inferences should take into account the design of data collection. Multilevel modeling accounts for all levels of a design without being overwhelmed with overfitting. 
+
+#### More efficient inference of regression parameters
+
+Data often arises in a multilevel structure. Traditional alternatives to multilevel modeling are complete pooling (group differences are ignored) and no pooling (data from different sources are analyzed separately and locally), neither of which are ideal. Complete pooling tends overlooks group-level variation; no pooling leads to high-variance estimates. Partial pooling via multilevel analysis tends tends to be a good tradeoff. 
+
+#### Including predictors at two different levels
+
+Multilevel models coherently model individual- and group-level models.
+
+#### Getting the right standard error 
+
+To get an accurate measure of predictive uncertainty, correlation between groups must be accounted for--multilevel modeling conveniently handles this.
+
+
+
+
 

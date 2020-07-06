@@ -1,10 +1,6 @@
 ## Multilevel Modeling Learning Plan
 
-This plan is a focused and structured approach to learning multilevel models. These are also known as hierarchical linear models (HLMs), linear mixed effects models (LMEs), and linear mixed models (LMMs).
-
-I use linear mixed models in my work at Facebook to quantify the effect of marketing inputs on brand sentiment.
-
-Below, I lay out learning goals, exercises to complete, and curriculum. Core work components will be notes, blog posts, and projects.
+This plan is a focused and structured approach to learning multilevel models. These are also known as hierarchical linear models (HLMs), linear mixed effects models (LMEs), and linear mixed models (LMMs). Multilevel modeling can be used to model data that has natural groupings within it. 
 
 ## Learning Goals
 
@@ -44,9 +40,8 @@ Complete projects
 
 #### Fundamentals of multilevel modeling
 
-- [ ] _Data Analysis Using Regression and Multilevel-Hierarchical Models_
-    - [ ] **Chapter 1:** Background on MLM
-    - [ ] **Chapter 7:** Simulation of statistical inferences 
+- [ ] _Data Analysis Using Regression and Multilevel/Hierarchical Models_
+    - [x] **Chapter 1:** Background on MLM
     - [ ] **Chapter 11:** Multilevel Structures
     - [ ] **Chapter 12:** Multilevel Linear Model Basics
     - [ ] **Chapter 13:** Varying Slopes, Non-Nested Models, and Other Complexities

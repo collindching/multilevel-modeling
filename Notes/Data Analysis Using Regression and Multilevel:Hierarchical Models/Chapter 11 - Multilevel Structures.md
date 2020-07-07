@@ -1,5 +1,25 @@
 # Chapter 11: Multilevel Structures
 
+This chapter covers basic mulitlevel models, surveys data that have multilevel structure (grouped data, repeated measurements, time-series crosss sections, non-nested structures), and outlines costs and benefits of multilevel modeling over classical regresion. 
+
+### Basic regression models for grouped data
+
+For data in which there are $J$ groups, there are three basic regression models: varying-intercept, varying-slope, and varying-intercet and varying-slope. 
+
+**Varying-intercept model:** $$y_i = \alpha_{j[i]} + \beta x_i + \epsilon_i$$
+
+**Varying-slope model:** $$y_i = \alpha + \beta_{j[i]}x_i + \epsilon_i$$
+
+**Varying-intercept, varying-slope model:** $$y_i = \alpha_{j[i]} + \beta_{j[i]} x_i + \epsilon_i$$
+
+Estimating all $\alpha_j$'s and $\beta_j$'s can be challenging. The rough method in multilevel modeling is to first set up a regression with varying coefficients (which vary by group). The next step is to fit a regression model for the coefficients. 
+
+### Grouped data example: Child support enforcement in cities
+
+Study context: observational study on effect of city-level policies on enforcing child support payments from unmarried fathres. Treatment occurs at city level, outcome is measured on individual families. 
+
+
+
 ### Benefits of multilevel modeling
 
 - Accounting for individual- and group-level variation in estimating group-level regression coefficients
@@ -12,21 +32,7 @@
 - Repeated measurement (or time series) data
 
 
-### Example structures for multilevel data
 
-**Varying-intercept model:** $$ y_i = \alpha_{j[i]} + \beta x_i + \epsilon_i $$
-
-**Varying-slope model:** $$ y_i = \alpha + \beta_{j[i]}x_i + \epsilon_i $$
-
-**Varying-intercept, varying-slope model:** $$ y_i = \alpha_{j[i]} + \beta_{j[i]} x_i + \epsilon_i $$
-
-
-
-The first step of multilevel modeling is to set up a regression with varying coefficients; the second step is to set up a regression model for the coefficients themselves.
-
-In multilevel modeling, each level of a model can have its own matrix of predictors. 
-
-Treatment may occur at group level.
 
 ### Possible methods to analyze grouped data
 

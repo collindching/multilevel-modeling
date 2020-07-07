@@ -1,6 +1,6 @@
 ## Multilevel Modeling Learning Plan
 
-Multilevel models, also known as hierarchical linear models (HLMs), linear mixed effects models (LMEs), and linear mixed models (LMMs), are an application of linear regression for multilevel data. Data is considered multilevel if it has a grouped structure (like students --> school --> county), or it arises from repeated measurements. The modeler is often interested in studying the groups, in addition to the individual observations, in the data.
+Multilevel models, AKA hierarchical linear models, linear mixed effect models, or linear mixed models, are an application of linear regression for multilevel data. Data is considered multilevel if it has a grouped structure (like students --> school --> county), or it arises from repeated measurements. The modeler is often interested in studying the groups, in addition to the individual observations, in the data.
 
 Here is a learning plan for better understanding the motivation, basic theory and assumptions, and applications for multilevel models. The end of this lesson plan should culminate in a couple blog posts, as well as a side project. 
 
@@ -41,12 +41,11 @@ After completing this learning plan, I will
 ## Exercises
 
 Blogs 
-- [ ] purpose of MLMs
-- [ ] assumptions of MLMs
-- [ ] difference between fixed and random effect
-- [ ] difference between MLE and REML
-- [ ] diagnostics of MLMs
+- [ ] Purpose of MLMs, and application deep dive
+- [ ] Assumptions and theory underlying MLMs
+- [ ] MLM implementation
+- [ ] MLM Diagnostics
 
-Complete projects
-- [ ] Predicting rent based on housing data
-- [ ] Project 2
+Projects
+- [ ] Toy
+- [ ] Modeling rent

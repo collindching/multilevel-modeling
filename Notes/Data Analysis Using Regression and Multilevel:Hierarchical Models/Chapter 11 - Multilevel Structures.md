@@ -50,7 +50,7 @@ First, fit a logistic regression to individual data using individual predictors,
 
 Multilevel modeling looks similar to the above strategy, but both steps are fitted simultaneously. There are two components. First, there is a logistic regression at the individual-level with an intercept that varies by city. Then, there is a city-level linear regression that predicts the city intercepts using city-level predictors. 
 
-The logistic regression will look like so
+The logistic regression will look like
 
 $$P(y=1) = \text{logit}^{-1}(X_i \beta + \alpha_{j[i]}) \tag*{for $j$ = 1, ..., $n$}$$
 
@@ -80,12 +80,40 @@ Non-nested data can also arise when individuals have overlapping categories of a
 
 ## Indicator variables and fixed or random effects
 
+In a typical classical regression, we typically include an indicator for $N - 1$ categories to prevent collinearity from occurring. However, this isn't a problem in multilevel modeling because indicators are themselves modeled based on group-level idstributions.
 
 ## Costs and benefits of multilevel modeling
 
-- Accounting for individual- and group-level variation in estimating group-level regression coefficients
-- Modeling variation among individual-level regression coefficients (how coefficients vary across groups)
+What classical regression achieves:
+
+- Prediction of continuous or discrete outcomes
+- Fitting nonlinear relations with transformations
+- Inclusion of categorical predictors using indicator variables
+- Modeling interactions between inputs
+- Causal inference
+
+### Motivations for multilevel modeling 
+
+Causal inference, study of variation, prediction of future outcomes are siome reasons.
+
+#### Benefits
+- Accounting for individual- and group-level variation together while estimating group-level regression coefficients
+- Modeling variation among individual-level regression coefficients; in particular, when we want to model variation of these coefficients across groups, make predictions for new groups, or account for group-level variation in uncertainty for individual-level coefficients
 - Estimating regression coefficents for particular groups
+
+#### Potential costs 
+
+A potential drawback to multilevel modeling is the complexity added by modeling groups. 
+
+Another is that multilevel modeling requires additional assumptions for each level of the model, such as additivity, linearity, independence, equal variance, and normality. 
+
+#### When to use multilevel modeling
+
+When there is little group-level variation, multilevel models reduce to classicial regression with no group indicators; when group-level coefficeints vary greatly, multilevel modeling reduces to classical regression with group indicators. 
+
+When the number of groups is small, there is typically not enough information to estimate group-level variation. 
+
+
 
 
 

@@ -1,6 +1,6 @@
 ## Multilevel Modeling Learning Plan
 
-Multilevel models, AKA hierarchical linear models, linear mixed effect models, or linear mixed models, are an application of linear regression for multilevel data. Data is considered multilevel if it has a grouped structure (like students --> school --> county), or it arises from repeated measurements. The modeler is often interested in studying the groups, in addition to the individual observations, in the data.
+Multilevel models, or linear mixed models, are a type of regression used to model grouped data. 
 
 Here is a learning plan for better understanding the motivation, basic theory and assumptions, and applications for multilevel models. The end of this lesson plan should culminate in a couple blog posts, as well as a side project. 
 
@@ -27,7 +27,7 @@ After completing this learning plan, I will
 
 - [ ] _Data Analysis Using Regression and Multilevel/Hierarchical Models_
     - [x] Chapter 1: Background on MLM
-    - [ ] Chapter 11: Multilevel Structures
+    - [x] Chapter 11: Multilevel Structures
     - [ ] Chapter 12: Multilevel Linear Model Basics
     - [ ] Chapter 13: Varying Slopes, Non-Nested Models, and Other Complexities
 

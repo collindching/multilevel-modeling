@@ -1,29 +1,23 @@
-## Multilevel Modeling Learning Plan
+# Multilevel Modeling
 
-Multilevel models, or linear mixed models, are a type of regression used to model grouped data. 
+Multilevel models, or linear mixed models, are a type of regression that are useful for studying variation between groups. 
 
-Here is a learning plan for better understanding the motivation, basic theory and assumptions, and applications for multilevel models. The end of this lesson plan should culminate in a couple blog posts, as well as a side project. 
+In this repo are my notes on the motivations, assumptions, and applications of MLMs. 
 
 ## Learning Goals
 
 After completing this learning plan, I will
 
-- [ ] Know the differences between mixed effects, multilevel, and hierarchical models
-- [ ] Understand use cases of multilevel models
-- [ ] Be comfortable with basic MLM math theory
-- [ ] Be able to describe error structure of MLMs
-- [ ] Understand MLM model assumptions and diagnostics
-- [ ] Have created a glossary of key MLM terminology
-- [ ] Be familiar with packages for implementating mixed/multilevel models in R 
+- [x] understand use cases of multilevel models
+- [ ] be comfortable with basic MLM math theory
+- [ ] be able to describe error structure of MLMs
+- [ ] understand MLM model assumptions and diagnostics
+- [ ] have a glossary of key MLM terms
+- [ ] have analyzed a couple datasets with MLM models
 
 ## Literature 
 
-#### Online resources
-        
-- [ ] [Introduction from StatsTutor](http://www.statstutor.ac.uk/resources/uploaded/multilevelmodelling.pdf)
-- [ ] [Math-oriented lecture](http://www2.stat.duke.edu/~sayan/Sta613/2018/lec/LMM.pdf)
-
-#### Books 
+### Books 
 
 - [ ] _Data Analysis Using Regression and Multilevel/Hierarchical Models_
     - [x] Chapter 1: Background on MLM
@@ -31,7 +25,12 @@ After completing this learning plan, I will
     - [ ] Chapter 12: Multilevel Linear Model Basics
     - [ ] Chapter 13: Varying Slopes, Non-Nested Models, and Other Complexities
 
-#### Applications
+### Articles
+        
+- [ ] [Introduction from StatsTutor](http://www.statstutor.ac.uk/resources/uploaded/multilevelmodelling.pdf)
+- [ ] [Math-oriented lecture](http://www2.stat.duke.edu/~sayan/Sta613/2018/lec/LMM.pdf)
+
+### Applications
 
 - Real estate
     - [ ] [Wikipedia: Hedonic Regression](https://en.wikipedia.org/wiki/Hedonic_regression)
@@ -47,5 +46,4 @@ Blogs
 - [ ] MLM Diagnostics
 
 Projects
-- [ ] Toy
-- [ ] Modeling rent
+- [ ] Modeling rent (although data is challenging to get)

@@ -52,7 +52,7 @@ In this book, the authors choose "multilevel models" as preferred terminology ov
 
 ## Motivations for multilevel modeling
 
-#### Learning about treatment effects that vary by group
+#### Studying treatment effects that vary by group
 
 It is often of interest to study how the effect of $x$ on $y$ varies throughout population. In classical statistics, interactions are used to study group-level variations; however, resulting estimates can be noisy (bad) when group sizes are small. Multilevel models allows us to study effects that vary by group with greater rigor. 
 

@@ -35,11 +35,22 @@ In this scenario, no-pooling can refer to fitting a separate regression model wi
 
 Recall, this will not take into account group-level variation; it pools all observations into a single group
 
-$$ y_i = \alpha + \beta x_i + epsilon_i $$
+$$ y_i = \alpha + \beta x_i + \epsilon_i $$
 
 ### No-pooling regression
 
-This computes a different regression for each group
+Includes an indicator for each group (different intercept for each group, same slope) 
 
 $$y_i = \alpha_{j[i]} + \beta x_i + \epsilon_i$$
 
+_Note on R formulas:_ The `-` operator removes the specified terms, so that `(a+b+c)^2 - a:b` is identical to `a + b + c + b:c + a:c`. It can also used to remove the intercept term: when fitting a linear model `y ~ x - 1` specifies a line through the origin. 
+
+### Problems with no-pooling and complete-pooling analyses
+
+Complete-pooling ignores group-level variation, which is undesirable if you are analyzing those groups. No-pooling overstates variance between groups.
+
+### Multilevel analysis
+
+A simple multilevel model for data with one predictor can be written as
+
+$$ y_i \sim \text{N}(\alpha_{j[i]} + \beta x_i, \sigma^2_y), \tag*{for i = 1, \ldots, n}$$

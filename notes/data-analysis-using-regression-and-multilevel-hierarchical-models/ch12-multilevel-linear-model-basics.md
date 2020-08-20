@@ -2,10 +2,10 @@
 
 ## Partial pooling with no predictors
 
-Multilevel regression can be thought of as a method of comprimising between complete pooling (building one big model without differentiating groups) and no pooling (estimation a separate model for each group).
+Multilevel regression can be thought of as a method of comprimising between complete pooling (estimating average  without differentiating groups) and no pooling (estimating average for each group).
 
 
-### Complete-pooling and no-pooling regression estimates
+### Complete-pooling and no-pooling regression estimates 
 
 Complete pooling: Estimate average across all groups, ignoring crucial variation among groups.
 
@@ -26,3 +26,20 @@ Weighted average reflects relative information available about the individual gr
 - If a group has a larger sample size, more weight is given to the group average
 
 To apply the formula, you need estimates of variation within and between groups.
+
+## Partial pooling with predictors
+
+In this scenario, no-pooling can refer to fitting a separate regression model within each group, or classical regression model that includes group indicators.
+
+### Complete-pooling regression
+
+Recall, this will not take into account group-level variation; it pools all observations into a single group
+
+$$ y_i = \alpha + \beta x_i + epsilon_i $$
+
+### No-pooling regression
+
+This computes a different regression for each group
+
+$$y_i = \alpha_{j[i]} + \beta x_i + \epsilon_i$$
+

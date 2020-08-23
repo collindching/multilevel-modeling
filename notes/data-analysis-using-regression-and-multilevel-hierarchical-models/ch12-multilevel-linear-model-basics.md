@@ -47,10 +47,18 @@ _Note on R formulas:_ The `-` operator removes the specified terms, so that `(a+
 
 ### Problems with no-pooling and complete-pooling analyses
 
-Complete-pooling ignores group-level variation, which is undesirable if you are analyzing those groups. No-pooling overstates variance between groups.
+Complete-pooling ignores group-level variation, which is undesirable if you are analyzing those groups. No-pooling overstates variance between groups. Moreover, groups with small sample size result in un-trustworthy models.
 
 ### Multilevel analysis
 
 A simple multilevel model for data with one predictor can be written as
 
 $$ y_i \sim \text{N}(\alpha_{j[i]} + \beta x_i, \sigma^2_y), \tag*{for i = 1, \ldots, n}$$
+
+where
+
+$$ \alpha_j \sim \text{N}(\mu_\alpha, \sigma^2_\alpha), \tag*{for j = 1, \ldots, n}$$
+
+The distribution has the effect of pulling estimates $\alpha_j$ toward the mean $\mu_alpha$, like a soft constraint. When $\sigma_\alpha \rightarrow \infty$ the soft constraint does nothing, leading to no-pooling. When $\sigma_\alpha \rightarrow 0$ you hae a hard constraint on $\alpha_j$, resulintg in complete-pooling.
+
+Groups with small sample sizes will have stronger pooling (closer to overall average model), whereas groups with larger sample sizes will have weaker pooling (closer to group-level model). 

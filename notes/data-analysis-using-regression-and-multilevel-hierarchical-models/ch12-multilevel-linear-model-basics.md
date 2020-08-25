@@ -67,10 +67,20 @@ Groups with small sample sizes will have stronger pooling (closer to overall ave
 
 To examine multilevel models, it's more common to plot group-level models and varying parameters, as opposed to examining numerical estimates. It can be helpful to look at numerical summaries of hyperparameters though.
 
-For example, if you have $\hat{\mu}_\alpha = 1.46$, $\hat\beta = -0.69$ then the regression line for all groups is $y=1.46-0.69x$. If $\hat\sigma_y = 0.76$ and $\hat\sigma_\alpha = 0.33$ then you have error standard deviations of 0.76 at the individual level and 0.33 at the county level.
+For example, if you have $\hat{\mu}_\alpha = 1.46$, $\hat\beta = -0.69$ then the regression line for all groups is $y=1.46-0.69x$. If $\hat\sigma_y = 0.76$ and $\hat\sigma_\alpha = 0.33$ then you have error standard deviations of 0.76 at the individual level and 0.33 at the group level. Note that $\hat{\sigma_y}$ is within-group variance for all groups.
 
-You can consider variation between counties $\sigma_\alpha$ relative to the variance ratio $\frac{\sigma_\alpha^2}{\sigma_y^2} = \frac{0.33^2}{0.76^2} = 0.19$. 
+One way to interpret variation between counties $\sigma_\alpha$ is to compare them to the variance ratio $\frac{\sigma_\alpha^2}{\sigma_y^2} = \frac{0.33^2}{0.76^2} = 0.19$. 
 
-This tells you that the variance between groups is same as the variance of 5 measurements in a group. This also 
+This tells you that the variance between groups is same as the variance of the average of 5 measurements in a group. Practically, this means that a group with a sample size $>5$ has more information (lower variance estimate) in the within-group model. 
 
-This tells you that the standard deviation between groups 
+In summary: 
+
+- The multilevel regression line in a group is closer to complete-pooling when sample size $\text{N} < 5$
+- The multilevel regression line in a group is closer to no-pooling when sample size $\text{N} > 5$
+
+The relative values of individual- and group-level variances are known as **intraclass correlation**,
+
+$$\frac{\sigma^2_\alpha}{\sigma^2_\alpha + \sigma^2_y}$$
+
+When this value is 0, $\sigma^2_\alpha = 0$ and the grouping conveys no information. When the value is 1, $\sigma^2_y = 0$ and all members of a group are identical. 
+

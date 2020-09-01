@@ -78,9 +78,24 @@ In summary:
 - The multilevel regression line in a group is closer to complete-pooling when sample size $\text{N} < 5$
 - The multilevel regression line in a group is closer to no-pooling when sample size $\text{N} > 5$
 
+### Intraclass correlation
+
 The relative values of individual- and group-level variances are known as **intraclass correlation**,
 
 $$\frac{\sigma^2_\alpha}{\sigma^2_\alpha + \sigma^2_y}$$
 
 When this value is 0, $\sigma^2_\alpha = 0$ and the grouping conveys no information. When the value is 1, $\sigma^2_y = 0$ and all members of a group are identical. 
 
+A way to understand ICC is that it represents the proportion of model variance that is explained by group  intercepts.
+
+### Partial pooling (shrinkage) of group coefficients $\alpha_j$
+
+Multilevel modeling partially pools group-level parameters $\alpha_j$ toward the mean level, $\mu_\alpha$. There is more pooling when the group-level standard deviation $\sigma_\alpha$ is small, and more smoothing for groups with fewer observations.
+
+The multilevel-modeling estimate of $\alpha_j$ can be expressed as the weighted average of the no-pooling estimate for its group ($\bar{y_j} - \beta \bar{x_j}$) and the mean $\mu_\alpha$. 
+
+$$ \text{estimate of \alpha_j} \sim \frac{\frac{n_j}{\sigma^2_y}}{\frac{n_j}{\sigma^2_y} + \frac{1}{\sigma^2_\alpha}}(\bar{y_j} - \beta \bar{x_j}) + \frac{\frac{1}{\sigma^2_\alpha}}{\frac{n_j}{\sigma^2_y} + \frac{1}{\sigma^2_\alpha}} \mu_\alpha$$
+
+### Classical regression as special case
+
+$\sigma_\alpha \rightarrow 0$ yields complete-pooling and $\sigma_\alpha \rightarrow \infty$ yields no-pooling model.

@@ -1,4 +1,4 @@
-# Chapter 12: Multilevel linear models - The Basics
+# Chapter 12: Multilevel linear models with varying-intercepts
 
 ## Partial pooling with no predictors
 
@@ -49,7 +49,7 @@ _Note on R formulas:_ The `-` operator removes the specified terms, so that `(a+
 
 Complete-pooling ignores group-level variation, which is undesirable if you are analyzing those groups. No-pooling overstates variance between groups. Moreover, groups with small sample size result in un-trustworthy models.
 
-### Multilevel analysis
+## Multilevel analysis
 
 A simple multilevel model for data with one predictor can be written as
 
@@ -59,7 +59,7 @@ where
 
 $$ \alpha_j \sim \text{N}(\mu_\alpha, \sigma^2_\alpha), \tag*{for j = 1, \ldots, n}$$
 
-The distribution has the effect of pulling estimates $\alpha_j$ toward the mean $\mu_alpha$, like a soft constraint. When $\sigma_\alpha \rightarrow \infty$ the soft constraint does nothing, leading to no-pooling. When $\sigma_\alpha \rightarrow 0$ you hae a hard constraint on $\alpha_j$, resulintg in complete-pooling.
+The distribution of $\alpha_j$ has the effect of its estimate toward the mean $\mu_\alpha$, like a soft constraint. When $\sigma_\alpha \rightarrow \infty$ the soft constraint does nothing, leading to no-pooling. When $\sigma_\alpha \rightarrow 0$ you hae a hard constraint on $\alpha_j$, resulintg in complete-pooling.
 
 Groups with small sample sizes will have stronger pooling (closer to overall average model), whereas groups with larger sample sizes will have weaker pooling (closer to group-level model). 
 
@@ -71,7 +71,7 @@ For example, if you have $\hat{\mu}_\alpha = 1.46$, $\hat\beta = -0.69$ then the
 
 One way to interpret variation between counties $\sigma_\alpha$ is to compare them to the variance ratio $\frac{\sigma_\alpha^2}{\sigma_y^2} = \frac{0.33^2}{0.76^2} = 0.19$. 
 
-This tells you that the variance between groups is same as the variance of the average of 5 measurements in a group. Practically, this means that a group with a sample size $>5$ has more information (lower variance estimate) in the within-group model. 
+This tells you that the variance between groups is same as the variance of the average of 5 measurements in a group. Practically, this means that a group with a sample size $>5$ has more information (lower variance estimate) in the within-group model (no-pooling) than using the group-level model (complete-pooling). 
 
 In summary: 
 
@@ -86,7 +86,7 @@ $$\frac{\sigma^2_\alpha}{\sigma^2_\alpha + \sigma^2_y}$$
 
 When this value is 0, $\sigma^2_\alpha = 0$ and the grouping conveys no information. When the value is 1, $\sigma^2_y = 0$ and all members of a group are identical. 
 
-A way to understand ICC is that it represents the proportion of model variance that is explained by group  intercepts.
+A way to understand ICC is that is the proportion of model variance that is explained by group differences.
 
 ### Partial pooling (shrinkage) of group coefficients $\alpha_j$
 
@@ -94,7 +94,9 @@ Multilevel modeling partially pools group-level parameters $\alpha_j$ toward the
 
 The multilevel-modeling estimate of $\alpha_j$ can be expressed as the weighted average of the no-pooling estimate for its group ($\bar{y_j} - \beta \bar{x_j}$) and the mean $\mu_\alpha$. 
 
-$$ \text{estimate of \alpha_j} \sim \frac{\frac{n_j}{\sigma^2_y}}{\frac{n_j}{\sigma^2_y} + \frac{1}{\sigma^2_\alpha}}(\bar{y_j} - \beta \bar{x_j}) + \frac{\frac{1}{\sigma^2_\alpha}}{\frac{n_j}{\sigma^2_y} + \frac{1}{\sigma^2_\alpha}} \mu_\alpha$$
+Isolating $\alpha_j$ in the no-pooling estimate of $\bar{y}$ in $\bar{y} = \alpha_j + \beta \bar{x_j}$ gives $\alpha_j = \bar{y} - \beta \bar{x_j}$. The multilevel-modeling estimate of $\alpha_j$ can then be represented as a weighted average of the no-pooling estimate for the group, and the complete-pooled mean:
+
+$$\alpha_j \approx \frac{\frac{n_j}{\sigma^2_y}}{\frac{n_j}{\sigma^2_y} + \frac{1}{\sigma^2_\alpha}}(\bar{y} - \beta \bar{x_j}) + \frac{\frac{1}{\sigma^2_\alpha}}{\frac{n_j}{\sigma^2_y} + \frac{1}{\sigma^2_\alpha}}\mu_\alpha$$
 
 ### Classical regression as special case
 

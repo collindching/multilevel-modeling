@@ -101,3 +101,40 @@ $$\alpha_j \approx \frac{\frac{n_j}{\sigma^2_y}}{\frac{n_j}{\sigma^2_y} + \frac{
 ### Classical regression as special case
 
 $\sigma_\alpha \rightarrow 0$ yields complete-pooling and $\sigma_\alpha \rightarrow \infty$ yields no-pooling model.
+
+## Fitting multilevel models in R
+
+Via `lmer` -- mixed effects refers to random effects (coefficients that vary by group) and fixed effects (coefficients that do not vary).
+
+### Varying-intercept model,  no predictors
+
+`mod <- lmer(y ~ 1 + (1 | county))`
+
+### Varying-intercept model with individual-level predictor
+
+`mod <- lmer(y ~ x + (1 | county))`
+
+### Model statistics
+
+To get a summary, run `display(mod)`. This gives estimated variation at both the group-level and individual level. 
+
+###
+
+## Five ways to write a multilevel model
+
+### 1. Allowing regression coefficients to vary across groups
+
+### 2. Combining separate local regressions
+
+### 3. Modeling the coefficients of a large regression model
+
+### 4. Regression with multiple error terms
+
+### 5. Large regression with correlated errors
+
+
+## Group-level predictors
+
+$$y_i \sim N(\alpha_{j[i]} + \beta x_i, \sigma^2_y) \tag*{, for i = 1, \ldots, n}$$
+
+$$\alpha_j \sim N(\gamma_0 + \gamma_1 \mu_j, \sigma^2_\alpha) \tag*{, for j = 1, \ldots, J}

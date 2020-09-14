@@ -106,35 +106,107 @@ $\sigma_\alpha \rightarrow 0$ yields complete-pooling and $\sigma_\alpha \righta
 
 Via `lmer` -- mixed effects refers to random effects (coefficients that vary by group) and fixed effects (coefficients that do not vary).
 
-### Varying-intercept model,  no predictors
+### Commands
+
+#### Varying-intercept model with no predictors
 
 `mod <- lmer(y ~ 1 + (1 | county))`
 
-### Varying-intercept model with individual-level predictor
+#### Varying-intercept model with individual-level predictor
 
 `mod <- lmer(y ~ x + (1 | county))`
 
-### Model statistics
+#### Model summary
 
-To get a summary, run `display(mod)`. This gives estimated variation at both the group-level and individual level. 
+To get a summary, run `display(mod)`. This gives you intercept and variable inferences, standard deviation at both group- and individual-level, and tells you how many data points and groups were fitted. 
 
-###
+#### Getting coefficients
 
-## Five ways to write a multilevel model
+`coef(mod)` gives the estimated regression line within each group.
 
-### 1. Allowing regression coefficients to vary across groups
+You can also look at the fixed effects (average for groups) and random effects (group-level errors) individually via `fixef(mod)` and `ranef(mod)`.
 
-### 2. Combining separate local regressions
+Fixed effects refers to coefficients that don't vary by group, for group-level coefficients, or for group averages.
 
-### 3. Modeling the coefficients of a large regression model
+### More complicated models
 
-### 4. Regression with multiple error terms
+`lmer()` works well when the sample size and number of groups is moderate to large. When number of groups is small or model becomes complicated, it can be better to use Bayesian inference.
 
-### 5. Large regression with correlated errors
+## Five ways to express a multilevel model
+
+### 1. As an extension of classical regression, where coefficients vary across groups
+
+In other words, your classical regression model 
+
+$$y_i = \beta_0 + \beta_1 X_{i1} + \beta_2 X_{i2} + \ldots + \epsilon_i$$
+
+becomes 
+
+$$y_i = \beta_{j[i]} + \beta_{j[i]} X_{i1} + \beta_{j[i]2} X_{i2} + \ldots + \epsilon_i$$
+
+The group-level predictor here is $X_{i2}$ and is encoded in the first level of the equation.
+
+This is multilevel because a multivariate distribution is assigned to $\beta$ within each group.
+
+In the case of a varying-intercept model, the model would be 
+
+$$y_i = \alpha_{j[i]} + X_i\beta + \epsilon_i \tag*{1st-level}$$ 
+
+and
+
+$$\alpha_j \sim N(\mu_\alpha, \sigma^2_\alpha) \tag*{2nd-level}$$
+
+where $X$ and $\beta$ don't include the intercept.
+
+### 2. As a combination of separate local regressions
+
+Within each county j, fit a local regression
+
+$$y_i \sim N(\alpha_j + \beta x_i, \sigma^2_y) \tag*{1st-level}$$
+
+where the group-level predictor enters in at the second level of the model as $\mu_j$
+
+$$\alpha_j \sim N(\gamma_0 + \gamma_1 \mu_j, \sigma^2_\alpha) \tag*{2nd-level}$$
+
+where $\mu_j$ is a group-level predictor.
 
 
-## Group-level predictors
 
-$$y_i \sim N(\alpha_{j[i]} + \beta x_i, \sigma^2_y) \tag*{, for i = 1, \ldots, n}$$
+Note that the local regression coefficients are the same in all $J$ models, but the different intercepts are connected through the second-level model.
 
-$$\alpha_j \sim N(\gamma_0 + \gamma_1 \mu_j, \sigma^2_\alpha) \tag*{, for j = 1, \ldots, J}
+
+### 3. As a large regression model
+
+You can combine local and group-level predictors into a single matrix $X$ as well:
+
+$$y_i \sim N(X_i \beta, \sigma^2_y)$$
+
+with group indicators
+
+$$\beta_j \sim N(0, \sigma^2_\alpha) \tag*{for j = 3, \ldots, J+2}$$
+
+Varying the group indicator $\beta_j$ encodes variance within groups.
+
+Here, $\beta_0$ is the intercept, $\beta_1$ is the individual-level predictor, $\beta_2$ is the group-level predictor.
+
+### 4. As a regression with multiple error terms
+
+You can re-express the model in (3), treating group indicator coefficients as error terms instead of regression coefficients.
+
+This is commonly referred to as the mixed-effects model.
+
+$$y_i \sim N(X_i \beta + \eta_{j[i]}, \sigma^2_y) \tag*{for i = 1, \ldots, n}$$
+
+$$\eta_j \sim N(0, \sigma^2_\alpha)$$
+
+where $j[i]$ represents the county that contains house $i$, and X = [constant term, individual predictor, group predictor]
+
+
+### 5. As a large regression with correlated errors
+
+$$y_i = X_i \beta + \epsilon^{all}_i, \epsilon^{all} \sim N(0, \Sigma)$$
+
+## Adding group-level predictors
+
+Adding a group-level predictor improves the inference for group-level coefficients $\alpha_j$.
+

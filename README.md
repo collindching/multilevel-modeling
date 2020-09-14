@@ -24,12 +24,14 @@ After completing this learning plan, I will
     - [x] Chapter 11: Multilevel Structures
     - [ ] Chapter 12: Multilevel Linear Model Basics
     - [ ] Chapter 13: Varying Slopes, Non-Nested Models, and Other Complexities
-    - [ ] Chapter 14: Multilevel logistic regression
-    - [ ] Chapter 15: Multilevel generalized linear models
-    - [ ] Chapter 17: Fitting multilevel linear and generalized linear models in Bugs and R
-    - [ ] Chapter 19: Debugging and speeding convergence
-    - [ ] Chapter 21: Understanding and summarizing the fitted models
+    - [ ] Chapter 17: Fitting Multilevel Linear and Generalized Linear Models in Bugs and R
+    - [ ] Chapter 20: Sample size and Power Calculations
+    - [ ] Chapter 21: Understanding and Summarizing the Fitted Models
     - [ ] Chapter 23: Causal inference using multilevel models
+    - [ ] Optional
+        - [ ] Chapter 19: Debugging and Speeding Convergence
+        - [ ] Chapter 14: Multilevel Logistic Regression
+        - [ ] Chapter 15: Multilevel Generalized Linear Models
 
 ### Articles
         

@@ -185,7 +185,7 @@ with group indicators
 
 $$\beta_j \sim N(0, \sigma^2_\alpha) \tag*{for j = 3, \ldots, J+2}$$
 
-Varying the group indicator $\beta_j$ encodes variance within groups.
+Varying the group indicator $\beta_j$ encodes variance between group coefficients.
 
 Here, $\beta_0$ is the intercept, $\beta_1$ is the individual-level predictor, $\beta_2$ is the group-level predictor.
 
@@ -206,7 +206,21 @@ where $j[i]$ represents the county that contains house $i$, and X = [constant te
 
 $$y_i = X_i \beta + \epsilon^{all}_i, \epsilon^{all} \sim N(0, \Sigma)$$
 
-## Adding group-level predictors
+## When is multilevel modeling most effective? 
 
-Adding a group-level predictor improves the inference for group-level coefficients $\alpha_j$.
+Multilevel modeling are most effective when the model estimates veer closer to complete pooling. In this setting, estimates can vary by group, while still being estimated precisely. 
+
+When the multilevel esimate is close to complete pooling, it still allows for variation between groups. It also handles groups of both small and large sizes well. 
+
+## Statistical significance
+
+Statistical significance is not an appropriate criterion for including group indicators in a multilevel model. The purpose of multilevel models is not to see whether effects are significantly different between groups; rather, the goal is to estimate group effects for each group, while appropriately accounting for uncertainty. 
+
+## How many groups and observations are needed to fit a multilevel model? 
+
+In general, you want to use multilevel modeling when you have data with many groups. When the number of groups is small, it's difficult to estimate between-group variation so multilevel modeling brings little to the table. 
+
+There isn't a great rule of thumb in terms of sample size, but you can have as little as one per group. The only issues is that you'll get imprecise estimations.
+
+
 

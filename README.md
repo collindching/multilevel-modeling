@@ -22,10 +22,9 @@ After completing this learning plan, I will
 - [ ] _Data Analysis Using Regression and Multilevel/Hierarchical Models_
     - [x] Chapter 1: Background on MLM
     - [x] Chapter 11: Multilevel Structures
-    - [ ] Chapter 12: Multilevel Linear Model Basics
+    - [x] Chapter 12: Multilevel Linear Model Basics
     - [ ] Chapter 13: Varying Slopes, Non-Nested Models, and Other Complexities
-    - [ ] Chapter 17: Fitting Multilevel Linear and Generalized Linear Models in Bugs and R
-    - [ ] Chapter 20: Sample size and Power Calculations
+    - [ ] Chapter 20: Sample Size and Power Calculations
     - [ ] Chapter 21: Understanding and Summarizing the Fitted Models
     - [ ] Chapter 23: Causal inference using multilevel models
     - [ ] Optional
